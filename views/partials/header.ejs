@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>YelpCamp</title>
+        
+        <!-- Latest compiled and minified CSS for Bootstrap 3 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!-- Campfire icon for the website -->
+        <link rel="icon" href="https://www.freefavicon.com/freefavicons/objects/camp-fire-152-194788.png">
+        
+        <!-- custom CSS -->
+        <link rel="stylesheet" href="/stylesheets/main.css" >
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YelpCamp</a>
+                
+            </div>
+            <div class="collapse navbar-collapse">
+                
+                <ul class="nav navbar-nav">
+                    <li><a href="/campgrounds">Campgrounds</a></li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <% if(!currentUser) { %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li><a><%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!--will only show if messages exist AND they have content-->
+        <!--having just if(successfm) can cause it to fire even though no msg-->
+        <% if(successfm && successfm.length > 0) { %>
+            <div class="alert alert-success" role="alert"><%= successfm %></div>
+        <% } %>'
+        
+        <% if(errorfm && errorfm.length > 0) { %>
+            <div class="alert alert-danger" role="alert"><%= errorfm %></div>
+        <% } %>       
+    </div>
