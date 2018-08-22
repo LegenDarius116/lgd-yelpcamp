@@ -18,10 +18,13 @@ app.use(methodOverride("_method"));
 
 // include mongoose and set it up
 var mongoose = require('mongoose');
-//mongoose.connect("mongodb://localhost:27017/yelpcampdb", { useNewUrlParser: true });
 
-// will use hosted database on mlab
-mongoose.connect("mongodb://lgd:d116116@ds127362.mlab.com:27362/lgd-yelpcamp", { useNewUrlParser: true });
+//console.log(process.env.DATABASEURL);
+//mongoose.connect("mongodb://localhost:27017/yelpcampdb", { useNewUrlParser: true });
+//mongoose.connect("mongodb://lgd:d116116@ds127362.mlab.com:27362/lgd-yelpcamp", { useNewUrlParser: true });
+
+// if on c9, will use local db. If on heroku, will use hosted db
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 
 // include passport stuff
 var passport = require('passport'),
