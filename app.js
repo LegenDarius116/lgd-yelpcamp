@@ -21,7 +21,6 @@ var mongoose = require('mongoose');
 
 //console.log(process.env.DATABASEURL);
 //mongoose.connect("mongodb://localhost:27017/yelpcampdb", { useNewUrlParser: true });
-//mongoose.connect("mongodb://lgd:d116116@ds127362.mlab.com:27362/lgd-yelpcamp", { useNewUrlParser: true });
 
 // so that there's backup
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelpcampdb";
